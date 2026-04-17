@@ -56,9 +56,9 @@ The local development app runs on `http://localhost:9002`.
 - [waslmedia/README.md](./waslmedia/README.md): app-specific commands and notes
 - [infra/README.md](./infra/README.md): Docker-based setup
 
-## SEO and discoverability
+## What You Get
 
-- clear repo structure and setup docs improve GitHub search readability
-- community health files help trust and contribution signals
-- CI, Dependabot, and CodeQL make the project look maintained and safer to adopt
-- a better README helps people understand the project quickly and share it
+- a full-stack video platform codebase built with Next.js, React, MySQL, Redis, and MinIO
+- setup docs for both Docker-based and local development flows
+- GitHub workflows for CI, dependency updates, and code scanning
+- community and support files for contributing, reporting issues, and following project updates
