@@ -2,6 +2,22 @@
 
 Waslmedia is a video publishing and advertising platform built with Next.js. This repository contains the main web app, local infrastructure helpers, demo account utilities, and supporting documentation for running the project safely in a public repository.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Stars](https://img.shields.io/github/stars/11nawid/waslmedia?style=social)](https://github.com/11nawid/waslmedia)
+[![CI](https://img.shields.io/github/actions/workflow/status/11nawid/waslmedia/ci.yml?branch=main&label=ci)](https://github.com/11nawid/waslmedia/actions)
+
+## Why this repo matters
+
+- modern video platform architecture with Next.js, MySQL, Redis, and MinIO
+- both app code and local infrastructure in one repo
+- useful as a product repo, learning resource, and starting point for media-style platforms
+
+## Support the project
+
+- Star the repo on GitHub if you want to help it grow.
+- Follow the builder on Instagram: [@11.skibidi](https://www.instagram.com/11.skibidi/)
+- Share the project with people interested in video platforms, creator tools, and Next.js builds.
+
 ## Repository layout
 
 - `waslmedia/`: main Next.js application
@@ -36,12 +52,13 @@ The local development app runs on `http://localhost:9002`.
 - [docs/README.md](./docs/README.md): documentation index
 - [docs/setup.md](./docs/setup.md): setup flows and environment guidance
 - [docs/architecture.md](./docs/architecture.md): high-level system overview
+- [docs/repo-settings.md](./docs/repo-settings.md): recommended GitHub repo settings and hardening checklist
 - [waslmedia/README.md](./waslmedia/README.md): app-specific commands and notes
 - [infra/README.md](./infra/README.md): Docker-based setup
 
-## Public repo safety
+## SEO and discoverability
 
-- Real `.env` files are ignored and should never be committed.
-- Only sanitized `.env.example` files belong in the repository.
-- Generated local artifacts such as `node_modules`, `.next`, logs, and `*.tsbuildinfo` stay out of version control.
-- If you add a new secret-backed integration, update the relevant `.env.example` file and docs without publishing the real value.
+- clear repo structure and setup docs improve GitHub search readability
+- community health files help trust and contribution signals
+- CI, Dependabot, and CodeQL make the project look maintained and safer to adopt
+- a better README helps people understand the project quickly and share it
