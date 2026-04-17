@@ -23,7 +23,7 @@ Copy-Item infra/.env.example infra/.env
 Copy-Item waslmedia/.env.example waslmedia/.env.local
 ```
 
-Replace every `change-me-*`, `replace-me-*`, and placeholder email or URL with values for your machine. Do not commit the real `.env` or `.env.local` files.
+Replace every `change-me-*`, `replace-me-*`, and placeholder email or URL with values for your machine.
 
 ## Option 1: Hybrid local development
 
@@ -102,9 +102,3 @@ npm run worker:video-processing
 - Media object references are stored in the database and served through application-controlled URLs.
 - Redis is used for realtime behavior, queue coordination, and shared rate limiting.
 - The background worker is required for video-processing flows outside the all-in-one Docker app setup.
-
-## Publishing safely
-
-- Keep only sanitized values in `.env.example`.
-- Never check in production credentials, API keys, webhook secrets, or private bucket credentials.
-- Review `git diff --cached` before pushing if you changed config files.

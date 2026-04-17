@@ -1,6 +1,6 @@
 # Documentation
 
-This folder collects the repo-level guides that are most useful when viewing Waslmedia on GitHub.
+This folder collects the main repo-level guides for exploring and running Waslmedia.
 
 ## Guides
 

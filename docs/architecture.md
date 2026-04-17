@@ -67,5 +67,5 @@ Inside `waslmedia/src/` the code is broadly divided into:
 ## Deployment-minded notes
 
 - The app has both local dev and container-oriented startup paths.
-- Build-time and runtime config both rely on env files, so documentation and example env files must stay synchronized.
-- Public repo safety depends on keeping secrets out of tracked files and limiting committed config to placeholders only.
+- Build-time and runtime config both rely on env files.
+- The same repository supports both application development and local service orchestration.

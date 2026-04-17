@@ -1,6 +1,6 @@
 # Waslmedia
 
-Waslmedia is a video publishing and advertising platform built with Next.js. This repository contains the main web app, local infrastructure helpers, demo account utilities, and supporting documentation for running the project safely in a public repository.
+Waslmedia is a video publishing and advertising platform built with Next.js. This repository contains the main web app, local infrastructure helpers, demo account utilities, and project documentation.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![Stars](https://img.shields.io/github/stars/11nawid/waslmedia?style=social)](https://github.com/11nawid/waslmedia)
@@ -15,7 +15,7 @@ Waslmedia is a video publishing and advertising platform built with Next.js. Thi
 ## Support the project
 
 - Star the repo on GitHub if you want to help it grow.
-- Follow the builder on Instagram: [@11.skibidi](https://www.instagram.com/11.skibidi/)
+- Follow project updates on Instagram: [@11.skibidi](https://www.instagram.com/11.skibidi/)
 - Share the project with people interested in video platforms, creator tools, and Next.js builds.
 
 ## Repository layout
@@ -28,7 +28,7 @@ Waslmedia is a video publishing and advertising platform built with Next.js. Thi
 
 ## Quick start
 
-1. Copy the example env files and replace placeholder values with your own local secrets.
+1. Copy the example env files and replace the placeholder values with your local configuration.
 2. Choose a development flow:
    - Docker-backed services: [infra/README.md](./infra/README.md)
    - Local app without Docker for the web server: [infra/RUN_WITHOUT_DOCKER.md](./infra/RUN_WITHOUT_DOCKER.md)
@@ -52,7 +52,6 @@ The local development app runs on `http://localhost:9002`.
 - [docs/README.md](./docs/README.md): documentation index
 - [docs/setup.md](./docs/setup.md): setup flows and environment guidance
 - [docs/architecture.md](./docs/architecture.md): high-level system overview
-- [docs/repo-settings.md](./docs/repo-settings.md): recommended GitHub repo settings and hardening checklist
 - [waslmedia/README.md](./waslmedia/README.md): app-specific commands and notes
 - [infra/README.md](./infra/README.md): Docker-based setup
 
@@ -60,5 +59,5 @@ The local development app runs on `http://localhost:9002`.
 
 - a full-stack video platform codebase built with Next.js, React, MySQL, Redis, and MinIO
 - setup docs for both Docker-based and local development flows
-- GitHub workflows for CI, dependency updates, and code scanning
+- GitHub workflows for CI and code scanning
 - community and support files for contributing, reporting issues, and following project updates
