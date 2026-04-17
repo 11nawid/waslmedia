@@ -1,19 +1,19 @@
 # Users Test Scripts
 
-This folder contains two database seeding scripts for your Waslmedia app.
+This folder contains database seeding scripts for local Waslmedia testing.
 
-Files:
+## Files
 
-- [index.js](C:\Users\KRO\Downloads\projects%20to%20sell\waslmedia\users_test\index.js)
-- [subscriber.js](C:\Users\KRO\Downloads\projects%20to%20sell\waslmedia\users_test\subscriber.js)
-- [fake_accounts.md](C:\Users\KRO\Downloads\projects%20to%20sell\waslmedia\users_test\fake_accounts.md)
+- [index.js](./index.js)
+- [subscriber.js](./subscriber.js)
+- [fake_accounts.md](./fake_accounts.md)
 
 ## 1. Create demo users
 
 Run:
 
 ```powershell
-cd "C:\Users\KRO\Downloads\projects to sell\waslmedia\users_test"
+cd users_test
 node index.js
 ```
 
@@ -54,7 +54,7 @@ Run:
 node subscriber.js
 ```
 
-That subscribes the users saved in `created_accounts.json` to:
+That subscribes the users saved in `created_accounts_latest.json` to:
 
 ```text
 @nawid
@@ -75,6 +75,5 @@ What it does:
 
 - `index.js` only creates users and writes the account list
 - `subscriber.js` only subscribes the newest batch created by the last `index.js` run
-- both scripts use your existing app DB config from:
-  - `waslmedia/.env.local`
-  - `waslmedia/.env`
+- both scripts use your existing app DB config from `waslmedia/.env.local` or `waslmedia/.env`
+- generated account output is local-only data and is ignored by git

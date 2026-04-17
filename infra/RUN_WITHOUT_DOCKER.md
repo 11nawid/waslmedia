@@ -1,6 +1,6 @@
 # WaslMedia Without Docker
 
-This guide is for running the Next.js app without Docker.
+This guide is for running the Next.js app without running the web server in Docker.
 
 You have 2 ways:
 
@@ -16,7 +16,7 @@ That gives you fast app development and avoids installing MinIO manually.
 
 ## Option 1: App locally, MinIO in Docker
 
-### 1. Start only MinIO
+### 1. Start only MinIO and Redis
 
 Open terminal in the `infra` folder and run:
 
@@ -32,11 +32,7 @@ MinIO URLs:
 
 ### 2. Prepare app env
 
-Open the app folder:
-
-`C:\Users\KRO\Downloads\projects to sell\waslmedia\waslmedia`
-
-Create `.env.local` if needed and make sure these values exist:
+Create `waslmedia/.env.local` if needed and make sure these values exist:
 
 ```env
 DB_HOST=127.0.0.1
@@ -44,13 +40,14 @@ DB_PORT=3306
 DB_USER=root
 DB_PASSWORD=
 DB_NAME=waslmedia_v1
-SESSION_SECRET=change-me
-
-MINIO_ROOT_USER=minioadmin
-MINIO_ROOT_PASSWORD=minioadmin123
+AUTH_SECRET=change-me-auth-secret
+MEDIA_TOKEN_SECRET=change-me-media-token-secret
+MINIO_ROOT_USER=replace-me-minio-user
+MINIO_ROOT_PASSWORD=replace-me-minio-password
 STORAGE_ENDPOINT=http://localhost:9000
 STORAGE_PUBLIC_URL=http://localhost:9000
 STORAGE_USE_SSL=false
+REDIS_URL=redis://127.0.0.1:6379
 ```
 
 ### 3. Start the app locally
@@ -58,6 +55,7 @@ STORAGE_USE_SSL=false
 In the app folder run:
 
 ```powershell
+cd waslmedia
 npm install
 npm run dev
 ```
@@ -68,8 +66,7 @@ App URL:
 
 ### 4. If you change code
 
-Just save the file.
-Next.js should hot reload automatically.
+Just save the file. Next.js should hot reload automatically.
 
 If the app gets stuck:
 
@@ -86,10 +83,11 @@ Stop local app:
 Ctrl + C
 ```
 
-Stop MinIO docker:
+Stop MinIO and Redis containers:
 
 ```powershell
-docker compose stop minio
+cd ../infra
+docker compose stop minio redis
 ```
 
 ## Option 2: App locally, MinIO locally too
@@ -112,8 +110,8 @@ From:
 Example PowerShell command:
 
 ```powershell
-$env:MINIO_ROOT_USER="minioadmin"
-$env:MINIO_ROOT_PASSWORD="minioadmin123"
+$env:MINIO_ROOT_USER="replace-me-minio-user"
+$env:MINIO_ROOT_PASSWORD="replace-me-minio-password"
 .\minio.exe server C:\minio-data --console-address ":9001"
 ```
 
@@ -122,19 +120,21 @@ $env:MINIO_ROOT_PASSWORD="minioadmin123"
 In another terminal:
 
 ```powershell
-.\mc.exe alias set local http://localhost:9000 minioadmin minioadmin123
+.\mc.exe alias set local http://localhost:9000 replace-me-minio-user replace-me-minio-password
 .\mc.exe mb --ignore-existing local/profile
 .\mc.exe mb --ignore-existing local/banners
 .\mc.exe mb --ignore-existing local/videos
 .\mc.exe mb --ignore-existing local/thumbnails
 .\mc.exe mb --ignore-existing local/postimages
 .\mc.exe mb --ignore-existing local/freeaudio
-.\mc.exe anonymous set download local/profile
-.\mc.exe anonymous set download local/banners
-.\mc.exe anonymous set download local/videos
-.\mc.exe anonymous set download local/thumbnails
-.\mc.exe anonymous set download local/postimages
-.\mc.exe anonymous set download local/freeaudio
+.\mc.exe mb --ignore-existing local/feedback
+.\mc.exe anonymous set none local/profile
+.\mc.exe anonymous set none local/banners
+.\mc.exe anonymous set none local/videos
+.\mc.exe anonymous set none local/thumbnails
+.\mc.exe anonymous set none local/postimages
+.\mc.exe anonymous set none local/freeaudio
+.\mc.exe anonymous set none local/feedback
 ```
 
 ### 4. Start the app locally
@@ -142,6 +142,7 @@ In another terminal:
 In the app folder run:
 
 ```powershell
+cd waslmedia
 npm install
 npm run dev
 ```
@@ -155,7 +156,7 @@ npm run dev
 ## MySQL note
 
 This project currently expects your MySQL server to already be running.
-For your setup that means WAMP MySQL should be on before you start the app.
+If you use WAMP, make sure MySQL is on before you start the app.
 
 The app will try to:
 
@@ -166,13 +167,13 @@ The app will try to:
 
 If you want the simplest non-Docker flow:
 
-1. Start WAMP MySQL.
+1. Start your local MySQL server.
 2. Run `docker compose up -d minio createbuckets redis` in `infra`.
-3. Run `npm run dev` in the app folder.
+3. Run `npm run dev` in the `waslmedia` folder.
 
 That means:
 
 - app runs locally
 - MinIO runs in Docker
 - Redis runs in Docker
-- MySQL runs from WAMP
+- MySQL runs from your local server

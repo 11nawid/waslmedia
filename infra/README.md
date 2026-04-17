@@ -1,96 +1,62 @@
-# WaslMedia Docker Setup
+# Waslmedia Docker Setup
 
-This folder starts:
+This folder contains the Docker Compose setup for local Waslmedia services.
 
-- Next.js app
+## What it starts
+
+- Next.js app container
+- video-processing worker
 - MinIO storage
 - Redis
-- video-processing worker
+- bucket bootstrap container
 
-If you use Docker, you do not need to run the Next.js app separately.
-When the app starts, it also tries to create the MySQL database and tables if they do not exist.
+If you want the web app to run locally instead of in Docker, use [RUN_WITHOUT_DOCKER.md](./RUN_WITHOUT_DOCKER.md).
 
-If you want to run the app without Docker, read:
+## First-time setup
 
-- [RUN_WITHOUT_DOCKER.md](C:\Users\KRO\Downloads\projects to sell\waslmedia\infra\RUN_WITHOUT_DOCKER.md)
+1. Copy the infra example env file:
 
-## URLs
+```powershell
+Copy-Item .env.example .env
+```
+
+2. Review and replace placeholder values in `.env`.
+
+3. Make sure the app env files exist:
+
+- `../waslmedia/.env` or
+- `../waslmedia/.env.local`
+
+4. Start the stack:
+
+```powershell
+docker compose up -d --build
+docker compose ps
+```
+
+## Default URLs
 
 - App: `http://localhost:3000`
 - MinIO API: `http://localhost:9000`
 - MinIO Console: `http://localhost:9001`
 - Redis: `redis://localhost:6379`
 
-## First time
+## How config is wired
 
-1. Open terminal in the `infra` folder.
-2. Run:
+Docker reads from:
 
-```powershell
-Copy-Item .env.example .env
-docker compose up -d --build
-docker compose ps
-```
+- `infra/.env`
+- `waslmedia/.env`
+- `waslmedia/.env.local`
 
-Docker uses the app's existing env files for database and app secrets:
+Compose overrides container-only values such as:
 
-- `../waslmedia/.env`
-- `../waslmedia/.env.local`
+- app URL and port
+- MinIO endpoint inside Docker
+- Redis URL inside Docker
+- MySQL host inside Docker
 
-Compose only overrides the values that must change inside Docker:
-
-- app URL and port to `http://localhost:3000`
-- MinIO endpoint to `http://minio:9000`
-- Redis URL to `redis://redis:6379`
-- DB host to `host.docker.internal` by default
-
-3. Open:
-
-- `http://localhost:3000`
-- `http://localhost:9001`
-
-## Important simple answer
-
-If you run:
-
-```powershell
-docker compose up -d
-```
-
-Docker starts both:
-
-- the built Next.js app on port `3000`
-- MinIO
-
-You do not need to run `npm run dev` separately outside Docker.
-
-## If Docker is already running and you change code
-
-The Docker app now runs the production build, so app code changes need a rebuild:
-
-```powershell
-docker compose up -d --build app
-```
-
-If you changed dependencies, `package.json`, `package-lock.json`, Dockerfile, or env values:
-
-```powershell
-docker compose up -d --build app
-```
-
-If you want to fully rebuild everything:
-
-```powershell
-docker compose up -d --build
-```
-
-Start only Docker services while you keep the app in local dev mode:
-
-```powershell
-docker compose up -d minio createbuckets redis
-```
-
-## Daily commands
+## Common commands
 
 Start:
 
@@ -104,51 +70,39 @@ Start and rebuild:
 docker compose up -d --build
 ```
 
+Rebuild only the app and worker after code or dependency changes:
+
+```powershell
+docker compose up -d --build app worker
+```
+
+Start only support services for local app development:
+
+```powershell
+docker compose up -d minio createbuckets redis
+```
+
 Stop:
 
 ```powershell
 docker compose stop
 ```
 
-Stop and remove containers:
+Remove containers:
 
 ```powershell
 docker compose down
 ```
 
-Check logs:
+Logs:
 
 ```powershell
 docker compose logs -f
 ```
 
-Check only app logs:
-
-```powershell
-docker compose logs -f app
-```
-
-Check status:
-
-```powershell
-docker compose ps
-```
-
-Restart only app:
-
-```powershell
-docker compose up -d --build app
-```
-
-Restart only MinIO:
-
-```powershell
-docker compose restart minio
-```
-
 ## Buckets
 
-These buckets are auto-created:
+These buckets are created automatically:
 
 - `profile`
 - `banners`
@@ -158,28 +112,15 @@ These buckets are auto-created:
 - `freeaudio`
 - `feedback`
 
-All buckets are private in Phase 2. First-party media is now served through signed application URLs instead of anonymous MinIO URLs.
+All buckets are private in the current local setup. Media is served through the application layer rather than anonymous object URLs.
 
-Create them again manually if needed:
+Recreate them manually if needed:
 
 ```powershell
 docker compose run --rm createbuckets
 ```
 
-## MinIO login
-
-- Username: `minioadmin`
-- Password: `minioadmin123`
-
 ## Port split
 
 - Docker app: `http://localhost:3000`
 - Local non-Docker dev app: `http://localhost:9002`
-
-
-
-
-
-
-we can run this after any change to build the update 
-docker compose up -d --build app worker
