@@ -1,0 +1,71 @@
+{
+    "sidebar": {
+        "home": "Inicio",
+        "shorts": "Shorts",
+        "subscriptions": "Suscripciones",
+        "you": "Tú",
+        "yourChannel": "Tu canal",
+        "history": "Historial",
+        "playlists": "Listas",
+        "yourVideos": "Tus vídeos",
+        "watchLater": "Ver más tarde",
+        "likedVideos": "Vídeos que me gustan",
+        "explore": "Explorar",
+        "trending": "Tendencias",
+        "aboutWaslmedia": "Sobre Waslmedia",
+        "signInPrompt": "Inicia sesión para indicar que te gustan los vídeos, comentar y suscribirte.",
+        "signIn": "Iniciar sesión"
+    },
+    "header": {
+        "search": "Buscar",
+        "uploadVideo": "Subir vídeo",
+        "uploadShort": "Subir un Short",
+        "viewChannel": "Ver tu canal",
+        "signOut": "Cerrar sesión",
+        "yourData": "Tus datos en Waslmedia",
+        "appearance": "Apariencia",
+        "language": "Idioma",
+        "location": "Ubicación",
+        "settings": "Ajustes",
+        "help": "Ayuda",
+        "sendFeedback": "Enviar sugerencias"
+    },
+    "themes": {
+        "light": "Claro",
+        "dark": "Oscuro",
+        "system": "Sistema"
+    },
+    "settings": {
+        "title": "Ajustes",
+        "save": "Guardar",
+        "saving": "Guardando...",
+        "cancel": "Cancelar",
+        "general": {
+            "title": "General",
+            "description": "Gestionar la configuración básica de tu cuenta.",
+            "language": "Idioma predeterminado"
+        },
+        "uploadDefaults": {
+            "title": "Valores predeterminados de subida",
+            "description": "Configuración para tus futuras subidas de vídeo.",
+            "defaultTitle": "Título predeterminado",
+            "defaultDescription": "Descripción predeterminada",
+            "defaultVisibility": "Visibilidad predeterminada",
+            "defaultCategory": "Categoría predeterminada",
+            "defaultTags": "Etiquetas predeterminadas"
+        },
+        "community": {
+            "title": "Comunidad",
+            "description": "Configuración predeterminada para los comentarios en tus nuevos vídeos.",
+            "commentsOnNewVideos": "Comentarios en tus nuevos vídeos",
+            "allowAll": "Permitir todos los comentarios",
+            "holdPotentiallyInappropriate": "Dejar los comentarios potencialmente inapropiados en espera de revisión",
+            "disable": "Inhabilitar comentarios"
+        }
+    },
+    "visibility": {
+        "public": "Público",
+        "private": "Privado",
+        "unlisted": "Oculto"
+    }
+}

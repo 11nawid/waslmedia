@@ -1,0 +1,25 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+ARG NEXT_PUBLIC_APP_BASE_URL=http://localhost:3000
+ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+
+ENV PORT=3000
+ENV APP_BASE_URL=${NEXT_PUBLIC_APP_BASE_URL}
+ENV NEXT_PUBLIC_APP_BASE_URL=${NEXT_PUBLIC_APP_BASE_URL}
+ENV NEXT_PUBLIC_TURNSTILE_SITE_KEY=${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+RUN npm run build && npm prune --omit=dev
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start", "--", "--port", "3000"]

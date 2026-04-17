@@ -1,0 +1,72 @@
+# Monorepo ignore rules for both /infra and /waslmedia
+
+# dependencies
+node_modules/
+**/node_modules/
+
+# next.js / generated app output
+.next/
+**/.next/
+out/
+**/out/
+build/
+**/build/
+coverage/
+**/coverage/
+.vercel/
+**/.vercel/
+.genkit/
+**/.genkit/
+.genkit-cache.json
+**/.genkit-cache.json
+
+# env files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.staging
+.env.test
+.env.*
+!.env.example
+!.env.*.example
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+logs/
+**/logs/
+*.pid
+*.seed
+
+# typescript
+*.tsbuildinfo
+
+# next / generated typings
+next-env.d.ts
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# local backups
+backup/
+
+# local demo/test account output
+users_test/data/
+
+# local temp and cache folders
+.cache/
+**/.cache/
+.tmp/
+**/.tmp/
+tmp/
+**/tmp/
+temp/
+**/temp/

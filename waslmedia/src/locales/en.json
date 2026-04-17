@@ -1,0 +1,71 @@
+{
+    "sidebar": {
+        "home": "Home",
+        "shorts": "Shorts",
+        "subscriptions": "Subscriptions",
+        "you": "You",
+        "yourChannel": "Your channel",
+        "history": "History",
+        "playlists": "Playlists",
+        "yourVideos": "Your videos",
+        "watchLater": "Watch later",
+        "likedVideos": "Liked videos",
+        "explore": "Explore",
+        "trending": "Trending",
+        "aboutWaslmedia": "About Waslmedia",
+        "signInPrompt": "Sign in to like videos, comment, and subscribe.",
+        "signIn": "Sign in"
+    },
+    "header": {
+        "search": "Search",
+        "uploadVideo": "Upload video",
+        "uploadShort": "Upload a short",
+        "viewChannel": "View your channel",
+        "signOut": "Sign out",
+        "yourData": "Your data in Waslmedia",
+        "appearance": "Appearance",
+        "language": "Language",
+        "location": "Location",
+        "settings": "Settings",
+        "help": "Help",
+        "sendFeedback": "Send feedback"
+    },
+    "themes": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "settings": {
+        "title": "Settings",
+        "save": "Save",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "general": {
+            "title": "General",
+            "description": "Manage basic settings for your account.",
+            "language": "Default Language"
+        },
+        "uploadDefaults": {
+            "title": "Upload defaults",
+            "description": "Settings for your future video uploads.",
+            "defaultTitle": "Default title",
+            "defaultDescription": "Default description",
+            "defaultVisibility": "Default visibility",
+            "defaultCategory": "Default category",
+            "defaultTags": "Default tags"
+        },
+        "community": {
+            "title": "Community",
+            "description": "Default settings for comments on your new videos.",
+            "commentsOnNewVideos": "Comments on your new videos",
+            "allowAll": "Allow all comments",
+            "holdPotentiallyInappropriate": "Hold potentially inappropriate comments for review",
+            "disable": "Disable comments"
+        }
+    },
+    "visibility": {
+        "public": "Public",
+        "private": "Private",
+        "unlisted": "Unlisted"
+    }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Default banner image</title>
+  <desc id="desc">Abstract banner with layered gradients and soft shapes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="50%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <circle cx="260" cy="200" r="220" fill="#38bdf8" opacity=".18" />
+  <circle cx="1360" cy="180" r="260" fill="#67e8f9" opacity=".16" />
+  <circle cx="1180" cy="760" r="320" fill="#22c55e" opacity=".14" />
+  <path d="M0 700c170-90 336-135 498-135 191 0 398 62 627 187 148 81 307 121 475 121v27H0z" fill="#ffffff" opacity=".14" />
+  <path d="M0 780c178-68 350-102 516-102 195 0 406 48 634 144 149 62 299 93 450 93v45H0z" fill="#ffffff" opacity=".08" />
+</svg>

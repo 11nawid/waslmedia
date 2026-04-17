@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Waslmedia Logo</title>
+  <desc id="desc">Rounded square logo with a play button and layered waves.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#bfdbfe" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)" />
+  <path d="M22 87c13-18 30-28 50-28 14 0 24 4 34 12v13c-9-6-19-9-31-9-15 0-29 6-42 18z" fill="#60a5fa" opacity=".65" />
+  <path d="M22 68c13-18 30-28 50-28 14 0 24 4 34 12v13c-9-6-19-9-31-9-15 0-29 6-42 18z" fill="#93c5fd" opacity=".5" />
+  <path d="M54 36l31 20-31 20z" fill="url(#accent)" />
+</svg>
